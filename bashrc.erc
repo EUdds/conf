@@ -22,6 +22,9 @@ set -o vi
 export EDITOR=vim
 export USERNAME=eudlis
 
+
+source /home/eudlis/bash-wakatime/bash-wakatime.sh
+
 # example of slick find exec usage
 #
 # find -type f -exec bash -c "file {} | grep 'POSIX shell script, ASCII text executable'" \;
@@ -41,6 +44,3 @@ alias sp_toggle="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias yolo='git push --force'
-alias fucking='sudo'
-
