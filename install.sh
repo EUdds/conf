@@ -1,7 +1,7 @@
 #!/bin/bash
 BACKUP_FOLDER="${HOME}/oldConfigs"
 SUFFIX=".erc"
-
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "Backing up your current conf files in ${BACKUP_FOLDER} in case you change your mind"
 
 function safeMove() {

@@ -44,3 +44,4 @@ alias sp_toggle="dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias sl='ls' # I NEEDED THIS, but remove if you actually use sl
