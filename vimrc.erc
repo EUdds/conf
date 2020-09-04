@@ -31,6 +31,8 @@ Plugin 'alvan/vim-closetag'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'itchyny/lightline.vim'
 Plugin 'frazrepo/vim-rainbow'
+Plugin 'dense-analysis/ale'
+Plugin 'preservim/nerdtree'
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 "filetype plugin indent on    " required
@@ -91,7 +93,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
+autocmd vimenter    * NERDTree
 " Phill's custom _vimrc Rev 2 -- first one was blown away :'(
 
 function ToggleComment()
