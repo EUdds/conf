@@ -1,4 +1,4 @@
-# conf
+# Eric Udlis' Big Bootie Mix (of Configuration files & Applications)
 .*rc files for maximizing productivity
 
 Use the installer script to interactively add these to your home directory

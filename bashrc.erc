@@ -23,8 +23,6 @@ export EDITOR=vim
 export USERNAME=eudlis
 
 
-source /home/eudlis/bash-wakatime/bash-wakatime.sh
-
 # example of slick find exec usage
 #
 # find -type f -exec bash -c "file {} | grep 'POSIX shell script, ASCII text executable'" \;
