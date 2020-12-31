@@ -6,8 +6,7 @@ function installPrograms() {
     local answer
     read -p "[Application Installation] Would you like to install Vundle (y/n) ? " -n 1 answer
     echo
-    if [ "${answer}" = "y" ];
-    then
+    if [ "${answer}" = "y" ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     else
         echo "Skipping"
@@ -15,24 +14,29 @@ function installPrograms() {
 
     read -p "[Application Installation] Would you like to install Python3 (This includes pip and venv) (y/n)? " -n 1 answer
     echo
-    if [ "${answer}" = "y" ];
-    then
-        sudo apt-get install -y python3 python3-pip python-is-python3        
+    if [ "${answer}" = "y" ]; then
+        sudo apt-get install -y python3 python3-pip python-is-python3
     else
         echo "Skipping"
     fi
 
-        read -p "[Application Installation] Would you like to install tmux (y/n)? " -n 1 answer
+    read -p "[Application Installation] Would you like to install tmux (y/n)? " -n 1 answer
     echo
-    if [ "${answer}" = "y" ];
-    then
-        sudo apt-get install -y tmux        
+    if [ "${answer}" = "y" ]; then
+        sudo apt-get install -y tmux
     else
         echo "Skipping"
     fi
 }
 
 function setupGit() {
+    read -p "[Application Installation] Would you like to configure Git Credentials (y/n)? " -n 1 answer
+    echo
+    if [ "${answer}" = "y" ]; then
+        sudo apt-get install -y tmux
+    else
+        return
+    fi
     local email
     read -p "[Git Config] Email: " email
     echo
@@ -41,7 +45,6 @@ function setupGit() {
     read -p "[Git Config] Name: " name
     git config --global user.name "${name}"
 }
-
 
 echo "Backing up your current conf files in ${BACKUP_FOLDER} in case you change your mind"
 
@@ -54,10 +57,9 @@ function safeMove() {
         return
     fi
     local base_file=$(basename -s ${SUFFIX} $1)
-    read  -p "[Configuration Files] Would you like to install .${base_file} (y/n)? " -n 1 answer
+    read -p "[Configuration Files] Would you like to install .${base_file} (y/n)? " -n 1 answer
     echo
-    if [ "${answer}" = "y" ];
-    then
+    if [ "${answer}" = "y" ]; then
         mv ${HOME}/".${base_file}" ${BACKUP_FOLDER}/${base_file}
         cp $1 ${HOME}/".${base_file}"
     else
@@ -65,7 +67,6 @@ function safeMove() {
         return
     fi
 }
-
 
 if [ ! -d "${BACKUP_FOLDER}" ]; then
     mkdir ${BACKUP_FOLDER}
@@ -93,5 +94,3 @@ echo
 echo "=== Exiting ==="
 
 exit 0
-
-
