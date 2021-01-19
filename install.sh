@@ -76,8 +76,8 @@ declare -a ALL_FILES=()
 
 ALL_FILES=$(ls *.erc)
 echo "=== Updating and Upgrading Packages ==="
-sudo apt-get update
-sudo apt-get upgrade
+#sudo apt-get update
+#sudo apt-get upgrade
 echo
 echo "=== Installing .rc Files ==="
 for name in ${ALL_FILES[@]}; do
