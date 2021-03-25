@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 # Source global definitions
 if [ -f /etc/bash.bashrc ]; then
-    . /etc/bash.bashrc
+   . /etc/bash.bashrc
 fi
 
 parse_git_branch() {
@@ -21,15 +21,8 @@ set -o vi
 
 export EDITOR=vim
 export USERNAME=eudlis
+export PATH="/home/eudlis/.local/bin:$PATH"
 
-
-# remote desktop to windows
-# $1 hostname
-# $2 username
-# $3 monitors 0, 1, 0,1
-function rdp() {
-    xfreerdp /multimon /monitors:$3 +fonts /d:X-ES /u:$2 /v:$1
-}
 
 # cd into folder and clear terminal
 # $1 folder to cd into
@@ -41,8 +34,13 @@ function rs() {
 # $1 path to image
 # $2 block to write (use lsblk to see blocks)
 function wd() {
-    pv $1 | sudo dd of=$2 conv=fsync
-    sync
+    if [ "$#" -ne 2 ]; then
+        lsblk
+        echo "Usage wd <path to image> <block to write>"
+    else
+        pv $1 | sudo dd of=$2 conv=fsync
+        sync
+    fi
 }
 
 # Opens folder in gui
@@ -59,7 +57,7 @@ git cherry-pick $1
 
 # example of slick find exec usage
 
- find -type f -exec bash -c "file {} | grep 'POSIX shell script, ASCII text executable'" \;
+#find -type f -exec bash -c "file {} | grep 'POSIX shell script, ASCII text executable'" \;
 #
 # find . -name "*.cdf" -exec grep -H string_to_look_for {} \;
 
@@ -77,3 +75,14 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias sl='ls' # I NEEDED THIS, but remove if you actually use sl
+alias sp='spotify'
+
+# Change directory aliases
+alias home='cd ~'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias cdtmp='cd `mktemp -d`'

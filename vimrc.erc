@@ -111,10 +111,10 @@ let s:toggle = 0
 
 function PhillComment()
     if s:toggle == 0
-        execute "normal \<Esc>O/* EPB EPB EPB */\<Esc>"
+        execute "normal \<Esc>O/* ELU ELU ELU */\<Esc>"
         let s:toggle = 1
     else
-        execute "normal \<Esc>o/* EPB EPB EPB */\<Esc>"
+        execute "normal \<Esc>o/* ELU ELU ELU */\<Esc>"
         let s:toggle = 0
     endif
 endfunction
